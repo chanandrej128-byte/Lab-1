@@ -1,0 +1,38 @@
+# Лабораторная работа №3
+# Задание №3
+# Вариант 8
+# Chen Bohan (Андрей)
+# ИСУ: 504718
+# Преподаватель: Шорохов Сергей Александрович
+
+# Задание:
+# Построить в консоли график функции с использованием символов и циклов.
+# y=x+2
+
+def f(x):
+    return x+2
+x_min,x_max=-10,10
+xs=list(range(x_min,x_max+1))
+ys=[int(round(f(x)))for x in xs]
+y_min,y_max=min(ys),max(ys)
+coll=3
+def f_line(ch):
+    return ch+" "*(coll-1)
+line=[]
+for y in range(y_max,y_min-1,-1):
+    row =f'{y:3d}'
+    for x1,y1 in zip(xs,ys):
+        if  y == 0 and x1 == 0:
+            row+=f_line("+")
+        elif y1==y:
+            row+=f_line('*')
+        elif x1==0 :
+            row+=f_line('|')
+        elif y==0:
+            row+=f_line('-')
+        else:
+            row+=" "*coll
+    line.append(row)
+line.append("  "+" ".join(f'{x:>{coll}d}'for x in xs))
+print('\n'.join(line))
+
