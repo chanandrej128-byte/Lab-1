@@ -1,0 +1,35 @@
+# Лабораторная работа №1
+# Вариант 8
+# Чэнь Бохань
+# ИСУ: 504718
+# Группа: python practise 25
+# Преподаватель: Шорохов Сергей Александрович
+
+# Задание:
+# Сгенерировать при помощи escape-символов в консоли изображение флага,
+# соответствующее варианту №8.
+
+RED ='\u001b[41m'
+GREEN = '\u001b[42m'
+YELLOW = '\u001b[43m'
+END= '\u001b[0m'
+line = ' '*4
+length=10
+height=length
+for i in range(height):
+    if i<height//2:
+        print(f'{GREEN}{line*3}{YELLOW}{line*7}{END}')
+    else:
+        print(f'{GREEN}{line*3}{RED}{line*7}{END}')
+
+
+
+
+
+
+
+
+
+
+
+
