@@ -1,0 +1,33 @@
+# Лабораторная работа №2
+# Задание №2
+# Вариант 8
+# Чэнь Бохань
+# ИСУ: 504718
+# Преподаватель: Шорохов Сергей Александрович
+
+# Задание:
+# Сгенерировать в консоли с помощью escape-символов изображение фигуры,
+# соответствующей варианту №8.
+
+
+BLACK = '\x1b[40m'
+WHITE = '\x1b[47m'
+END   = '\x1b[0m'
+
+h = 7
+w = 13
+for i in range(h):
+    for j in range(w):
+        if i <= h//2:
+
+            if (j >= 3 - i and j <= 3 + i) or (j >= 9 - i and j <= 9 + i):
+                print(f"{WHITE}  {END}", end="")
+            else:
+                print(f"{BLACK}  {END}", end="")
+        else:
+            down = h - 1 - i
+            if (j >= 3 - down and j <= 3 + down) or (j >= 9 - down and j <= 9 + down):
+                print(f"{WHITE}  {END}", end="")
+            else:
+                print(f"{BLACK}  {END}", end="")
+    print()
