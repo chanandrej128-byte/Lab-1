@@ -1,0 +1,26 @@
+# Лабораторная работа №1  — Вариант №8
+# Задание №4
+#Числа от 0 до 5 и числа от 0 до -5, остальные отбросить
+RED="\x1b[41m"
+BLUE="\x1b[44m"
+END="\x1b[0m"
+
+
+with open('sequence.txt',"r",encoding="utf-8") as f:
+    date=f.read().splitlines()
+    count=sum(1 for i in date)
+
+
+big=0
+small=0
+for i in date:
+    if float(i)>-5 and float(i)<0:
+        small+=1
+    if float(i)>=0 and float(i)<5:
+        big+=1
+big_a=int(big*100/count)
+small_a=int(small*100/count)
+line=" "*3
+length=100
+print(f'bigger than -5 and smaller than 0:{RED}{line*big_a}{END}{big:.1f}%')
+print(f"bigger than 0 and smaller than 5: {BLUE}{line*small_a}{END}{small:1f}%")
